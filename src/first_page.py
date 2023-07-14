@@ -13,6 +13,11 @@ class MainWindow(QMainWindow):
         text.setAlignment(Qt.AlignmentFlag.AlignCenter)
         self.setCentralWidget(text)
 
+        menu = self.menuBar()
+
+        file_menu = menu.addMenu("&File")
+
+        file_menu2 = menu.addMenu("&Tools")
 
 app = QApplication([sys.argv])        
 window = MainWindow()
