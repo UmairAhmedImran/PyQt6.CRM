@@ -1,6 +1,8 @@
 from PyQt6.QtWidgets import QApplication, QLabel, QLineEdit ,QVBoxLayout ,QPushButton, QMainWindow, QWidget
 import sys
 from PyQt6.QtCore import Qt
+
+
 class Window(QWidget):
     def __init__(self):
         super().__init__()
@@ -32,11 +34,20 @@ class Window(QWidget):
 class Mainwindow(QMainWindow):
     def __init__(self):
         super().__init__()
-        self.button = QPushButton("Push for Window")
-        self.button.clicked.connect(self.show_new_window)
-        self.setCentralWidget(self.button)
 
-    def show_new_window(self, checked):
+        self.setGeometry(400,300,500,400)
+        self.setWindowTitle("Login")
+
+        self.UIcomponents()
+
+    def UIcomponents(self):
+        button = QPushButton("Push for Window", self)
+        button.setGeometry(100, 100, 120, 30)
+        button.clicked.connect(self.show_new_window)
+        
+
+    def show_new_window(self):
+        self.close()
         self.w = Window()
         self.w.show()
 
