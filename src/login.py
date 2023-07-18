@@ -17,13 +17,15 @@ class Window(QWidget):
 
         self.images(300, 300, "login_image.png")
 
-        self.buttons(40, 260, 130, 35, "Login", self.passing)
+        self.buttons(40, 240, 130, 35, "Login", self.passing)
 
     def buttons(self, w: int, x: int, y: int, z: int, text: str, fn):
-         button = QPushButton(text, self)
-         button.setFocus()
-         button.setGeometry(w, x, y, z)
-         button.clicked.connect(fn)
+         self.button = QPushButton(text, self)
+         self.button.setFocus()
+         self.button.setGeometry(w, x, y, z)
+         self.button.clicked.connect(fn)
+         self.button.setCursor(Qt.CursorShape.PointingHandCursor)
+         self.button.setStyleSheet("background-color: black; color: white;")
 
     def passing(self):
         pass
