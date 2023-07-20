@@ -3,6 +3,7 @@ from PyQt6.QtGui import QFont, QPixmap
 from PyQt6.QtCore import Qt
 import sys
 
+text = []
 class Window(QWidget):
     def __init__(self):
         super().__init__()
@@ -28,7 +29,9 @@ class Window(QWidget):
          self.button.setStyleSheet("background-color: black; color: white;")
 
     def passing(self):
-        pass
+        self.close()
+        self.w = Dashboard()
+        self.w.show()
 
     def images(self, new_width:int, new_height:int, image_url:str):
 
@@ -55,6 +58,14 @@ class Window(QWidget):
         self.input.setEchoMode(Echomode)
         self.input.setDragEnabled(False)
         self.input.move(x, y)
+
+class Dashboard(QWidget):
+    def __init__(self):
+        super().__init__()
+        self.resize(500,300)
+        self.setWindowTitle("Dashboard")
+
+        Window.images(self, 300, 320, 'i_health_care_center.jpg')
 
 
 app = QApplication(sys.argv)
